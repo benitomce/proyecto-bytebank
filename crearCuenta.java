@@ -9,7 +9,6 @@ public class crearCuenta {
         System.out.println(segundaCuenta.saldo);
 
         System.out.println(primeraCuenta.agencia);
-        in
     }
     
 }
