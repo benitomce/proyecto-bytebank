@@ -1,11 +1,11 @@
 public class ejerciciosReferencia {
     public static void main(String[] args) {
-        cuenta cuentaBeni = new cuenta();
+        cuenta cuentaBeni = new cuenta(123,12312);
         cliente clienteBeni = new cliente();
-        cuentaBeni.titular = clienteBeni;
-        cuentaBeni.titular.nombre = "beni";
+        cuentaBeni.setTitular(clienteBeni);;
+        cuentaBeni.getTitular().getNombre();
 
-        System.out.println(cuentaBeni.titular.nombre);
+        System.out.println(cuentaBeni.getTitular().getNombre());
 
     }
 }

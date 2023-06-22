@@ -1,16 +1,48 @@
 class cuenta {
-    double getSaldo;
-    int agencia;
-    int numero;
-    cliente titular;
+    private double saldo;
+    private int agencia;
+    private int numero;
+
+    private static int total = 0;
+
+    public static int getTotal() {
+        return cuenta.total;
+    }
+
+    public static void setTotal(int total) {
+        cuenta.total = total;
+    }
+
+    public cuenta(int agencia, int numero) {
+        this.numero = numero;
+        if (agencia <= 0) {
+            System.out.println("no se permiten valores menores a 1");
+            this.agencia = 1;
+        } else {
+            this.agencia = agencia;
+            System.out.println("cuenta creada con exito");
+        }
+        total++;
+        System.out.println("se crearon " + total + " cuentas");
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
+    private cliente titular;
 
     void depositar(double valor) {
-        this.getSaldo = this.getSaldo + valor;
+        this.saldo = this.saldo + valor;
     }
 
     public boolean retirar(double valor) {
-        if (this.getSaldo >= valor) {
-            this.getSaldo -= valor;
+        if (this.saldo >= valor) {
+            this.saldo -= valor;
             return true;
         } else {
             return false;
@@ -18,16 +50,16 @@ class cuenta {
     }
 
     public boolean transferir(double valor, cuenta Cuenta) {
-        if (this.getSaldo >= valor) {
-            this.getSaldo -= valor;
-            Cuenta.getSaldo += valor;
+        if (this.saldo >= valor) {
+            this.saldo -= valor;
+            Cuenta.saldo += valor;
             return true;
         }
         return false;
     }
 
     public double getSaldo() {
-        return this.getSaldo;
+        return this.saldo;
     }
 
     public void setAgencia(int agencia) {
@@ -49,4 +81,5 @@ class cuenta {
     public cliente getTitular() {
         return titular;
     }
+
 }
